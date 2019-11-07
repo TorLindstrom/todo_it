@@ -15,7 +15,7 @@ Create a new class called People inside the data package.
         f. Add a method public void clear() that clears all Person objects from the         -done
         Person array.
         g. Unit test People class with Junit.                                               -done
-        h. Commit changes.                                                                  -
+        h. Commit changes.                                                                  -done
 */
 
 import se.lexicon.tor.model.Person;
