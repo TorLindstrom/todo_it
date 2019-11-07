@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import se.lexicon.tor.data.PersonSequencer;
+import se.lexicon.tor.data.TodoSequencer;
 import se.lexicon.tor.model.Person;
 import se.lexicon.tor.model.Todo;
 
@@ -112,5 +113,32 @@ public class AppTest
         PersonSequencer.reset();
         //assert
         assertEquals(PersonSequencer.nextPersonId(), expected);
+    }
+
+    /*-----------------------------------------------------------------------------------------*/
+
+    @Test
+    public void testTodoSequencerNext()
+    {
+        //arrange
+        int expected = 3;
+        //act
+        TodoSequencer.nextTodoId();
+        TodoSequencer.nextTodoId();
+        //assert
+        assertEquals(TodoSequencer.nextTodoId(), expected);
+    }
+
+    @Test
+    public void testTodoSequencerReset()
+    {
+        //arrange
+        int expected = 1;
+        //act
+        TodoSequencer.nextTodoId();
+        TodoSequencer.nextTodoId();
+        TodoSequencer.reset();
+        //assert
+        assertEquals(TodoSequencer.nextTodoId(), expected);
     }
 }
