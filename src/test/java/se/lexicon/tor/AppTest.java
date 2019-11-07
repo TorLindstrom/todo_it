@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import se.lexicon.tor.data.PersonSequencer;
 import se.lexicon.tor.model.Person;
 import se.lexicon.tor.model.Todo;
 
@@ -88,6 +89,28 @@ public class AppTest
 
     /*-----------------------------------------------------------------------------------------*/
 
+    @Test
+    public void testPersonSequencerNext()
+    {
+        //arrange
+        int expected = 3;
+        //act
+        PersonSequencer.nextPersonId();
+        PersonSequencer.nextPersonId();
+        //assert
+        assertEquals(PersonSequencer.nextPersonId(), expected);
+    }
 
-
+    @Test
+    public void testPersonSequencerReset()
+    {
+        //arrange
+        int expected = 1;
+        //act
+        PersonSequencer.nextPersonId();
+        PersonSequencer.nextPersonId();
+        PersonSequencer.reset();
+        //assert
+        assertEquals(PersonSequencer.nextPersonId(), expected);
+    }
 }
