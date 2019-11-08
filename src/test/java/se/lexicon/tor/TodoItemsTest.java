@@ -11,7 +11,6 @@ import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class TodoItemsTest {
-    static Todo todo;
     static TodoItems test = new TodoItems();
     static Person person;
     static Person person2;
