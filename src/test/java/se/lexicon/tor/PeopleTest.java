@@ -65,4 +65,44 @@ public class PeopleTest {
         assertEquals(test2, test.findAll()[0]);
     }
 
+    @Test
+    public void testRemoveIs(){
+
+        Person[] test3 = new Person[6];
+
+        test.clear();
+        test3[0] = test.newPerson("Svante", "vante");
+        test3[1] =test.newPerson("Svante", "vante");
+        test3[2] =test.newPerson("Svante", "vante");
+        Person test2 = test.newPerson("Tor", "Svensson");
+        test3[3] =test.newPerson("Svante", "vante");
+        test3[4] =test.newPerson("Svante", "vante");
+        test3[5] =test.newPerson("Svante", "vante");
+
+        test.remove(test2);
+
+        assertArrayEquals(test3, test.findAll());
+    }
+
+    @Test
+    public void testRemoveIsNot(){
+
+        Person[] test3 = new Person[7];
+
+        test.clear();
+        test3[0] = test.newPerson("Svante", "vante");
+        test3[1] = test.newPerson("Svante", "vante");
+        test3[2] = test.newPerson("Svante", "vante");
+        test3[3] = test.newPerson("Tor", "Svensson");
+        test3[4] = test.newPerson("Svante", "vante");
+        test3[5] = test.newPerson("Svante", "vante");
+        test3[6] = test.newPerson("Svante", "vante");
+
+        Person test4 = new Person(1, "Bengt", "Svensson");
+
+        test.remove(test4);
+
+        assertArrayEquals(test3, test.findAll());
+    }
+
 }

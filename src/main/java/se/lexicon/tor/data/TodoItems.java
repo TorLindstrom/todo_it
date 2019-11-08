@@ -84,6 +84,22 @@ public class TodoItems {
         items = new Todo[0];
     }
 
+    public void remove(Todo toBeRemoved) {
+        int index = -1;
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] == toBeRemoved) {
+                index = i;
+                break;
+            }
+        }
+        if (index != -1) {
+            Todo[] part1 = Arrays.copyOfRange(items, 0, index);
+            Todo[] part2 = Arrays.copyOfRange(items, index + 1, items.length);
+            items = new Todo[items.length - 1];
+            System.arraycopy(part1, 0, items, 0, part1.length);
+            System.arraycopy(part2, 0, items, part1.length, part2.length);
+        }
+    }
 
 }
 

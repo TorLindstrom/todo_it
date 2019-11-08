@@ -166,4 +166,45 @@ public class TodoItemsTest {
         assertNull(test2[0].getAssignee());
         assertNull(test2[1].getAssignee());
     }
+
+    @Test
+    public void testRemoveIs(){
+
+        Todo[] test3 = new Todo[6];
+
+        test.clear();
+        test3[0] = test.newTodo("Svante");
+        test3[1] =test.newTodo("Svante");
+        test3[2] =test.newTodo("Svante");
+        Todo test2 = test.newTodo("Tor");
+        test3[3] =test.newTodo("Svante");
+        test3[4] =test.newTodo("Svante");
+        test3[5] =test.newTodo("Svante");
+
+        test.remove(test2);
+
+        assertArrayEquals(test3, test.findAll());
+    }
+
+    @Test
+    public void testRemoveIsNot(){
+
+        Todo[] test3 = new Todo[7];
+
+        test.clear();
+        test3[0] = test.newTodo("Svante");
+        test3[1] = test.newTodo("Svante");
+        test3[2] = test.newTodo("Svante");
+        test3[3] = test.newTodo("Svante");
+        test3[4] = test.newTodo("Svante");
+        test3[5] = test.newTodo("Svante");
+        test3[6] = test.newTodo("Svante");
+
+        Todo test4 = new Todo(1, "task");
+
+        test.remove(test4);
+
+        assertArrayEquals(test3, test.findAll());
+    }
+
 }
